@@ -11,15 +11,13 @@ def get_character_dict(text):
     return character_dict
 
 def report(text, path):
-    character_dict = get_character_dict(text)
-    num_words = get_num_words(text)
-
     reportstring = f"--- Begin report of {path} ---\n"
+    
+    num_words = get_num_words(text)
     reportstring += f"{num_words} words found in the document\n\n"
 
-    characters = list(character_dict.keys())
-    characters.sort()
-    
+    character_dict = get_character_dict(text)
+    characters = sorted(list(character_dict.keys()))
     for char in characters:
         reportstring += f"The '{char}' character was found {character_dict[char]} times\n"
     
